@@ -11,7 +11,7 @@ public class Objective : MonoBehaviour
 
     public UnityEvent completeEvent;
 
-    void Start()
+    void Awake()
     {
         List<Objective> pre = new List<Objective>();
         for (int i = 0; i < transform.childCount; ++i)
