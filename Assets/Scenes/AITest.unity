@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 770924492}
   - component: {fileID: 770924491}
   - component: {fileID: 770924496}
+  - component: {fileID: 770924497}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -552,6 +553,18 @@ MonoBehaviour:
   main: {fileID: 429808555}
   next: {fileID: 0}
   anim: {fileID: 1805564802}
+--- !u!114 &770924497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770924490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76559a3f8ba60347bcae6a579f0aee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &789190687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 708f5ce54647840438628c3ef637fc03, type: 3}
@@ -982,6 +995,7 @@ MonoBehaviour:
   agent: {fileID: 1254804954}
   minPitch: -45
   maxPitch: 89
+  timeBetweenShots: 0.1
 --- !u!1001 &1279306407
 PrefabInstance:
   m_ObjectHideFlags: 0

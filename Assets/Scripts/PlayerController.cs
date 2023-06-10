@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float minPitch = -45f;
     public float maxPitch = 89f;
 
+    public float timeBetweenShots;
+    float lastFireTime;
+
     void Start()
     {
         cam = Camera.main;
@@ -34,5 +37,29 @@ public class PlayerController : MonoBehaviour
         Vector3 sideVec = new Vector3(forwardVec.z, 0, -forwardVec.x);
 
         agent.destination = transform.position + forwardVec * Input.GetAxis("Vertical") + sideVec * Input.GetAxis("Horizontal");
+
+        //player looking at
+        if (Input.GetMouseButton(0) && TryFire())
+        {
+            Fire();
+        }
+    }
+
+    void Fire()
+    {
+        lastFireTime = Time.time;
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.transform.TryGetComponent<EnemyHealth>(out EnemyHealth health))
+            {
+                health.TakeDamage(5);
+            }
+        }
+    }
+
+    bool TryFire()
+    {
+        return (lastFireTime + timeBetweenShots < Time.time);
     }
 }
