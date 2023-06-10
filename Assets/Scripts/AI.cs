@@ -48,7 +48,7 @@ public class AI : MonoBehaviour
             }
             else if (Vector3.Distance(agent.transform.position, next.targetLocation.position) < 0.5f)
             {
-                next.Interact();
+                next.Interact(this);
             }
         }
     }

@@ -50,12 +50,12 @@ public class Objective : MonoBehaviour
         return ret;
     }
 
-    public void Complete()
+    public virtual void Complete()
     {
         complete = true;
     }
 
-    public void Interact() {
+    public virtual void Interact(AI ai) {
         Complete();
     }
 }
