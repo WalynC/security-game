@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
         cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
