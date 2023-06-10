@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     Camera cam;
-    float rotX, rotY;
+    float yaw, pitch;
     public float sensitivity = 1000f;
     public NavMeshAgent agent;
+    public float minPitch = -45f;
+    public float maxPitch = 89f;
 
     void Start()
     {
@@ -21,12 +23,12 @@ public class PlayerController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = -Input.GetAxis("Mouse Y");
 
-        rotY += mouseX * sensitivity * Time.deltaTime;
-        rotX += mouseY * sensitivity * Time.deltaTime;
+        pitch += mouseY * sensitivity * Time.deltaTime;
+        yaw += mouseX * sensitivity * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -45f, 89f);
+        pitch = Mathf.Clamp(pitch, -maxPitch, -minPitch);
 
-        cam.transform.rotation = Quaternion.Euler(rotX, rotY, 0f);
+        cam.transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
         //movement
         Vector3 forwardVec = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
         Vector3 sideVec = new Vector3(forwardVec.z, 0, -forwardVec.x);

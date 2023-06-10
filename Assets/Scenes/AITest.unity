@@ -898,6 +898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 2500
+  agent: {fileID: 1254804954}
+  minPitch: -45
+  maxPitch: 89
 --- !u!1001 &1279306407
 PrefabInstance:
   m_ObjectHideFlags: 0
