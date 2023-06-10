@@ -466,10 +466,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 770924495}
-  - component: {fileID: 770924492}
   - component: {fileID: 770924491}
   - component: {fileID: 770924496}
   - component: {fileID: 770924497}
+  - component: {fileID: 770924498}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -499,29 +499,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &770924492
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770924490}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &770924495
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +542,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76559a3f8ba60347bcae6a579f0aee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &770924498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770924490}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 1.5, z: 0.3}
+  m_Center: {x: 0, y: -0.4, z: 0}
 --- !u!4 &789190687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 708f5ce54647840438628c3ef637fc03, type: 3}
