@@ -9,6 +9,6 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         health -= dmg;
-        if (health <= 0) //we winnered
+        if (health <= 0) { } //we winnered
     }
 }
