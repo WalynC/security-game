@@ -8,6 +8,7 @@ public class AI : MonoBehaviour
     public Objective main;
     public Objective next;
     NavMeshAgent agent;
+    public Animator anim;
 
     void Start()
     {
@@ -36,6 +37,8 @@ public class AI : MonoBehaviour
 
     private void Update()
     {
+        bool isMoving = agent.velocity.magnitude > 0.5f;
+        anim.SetBool("move", isMoving);
         if (next != null)
         {
             if (next.complete)
