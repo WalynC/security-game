@@ -286,8 +286,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prereqs: []
-  complete: 0
   targetLocation: {fileID: 429808554}
+  completeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &507913933
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,8 +536,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prereqs: []
-  complete: 0
   targetLocation: {fileID: 927619459}
+  completeEvent:
+    m_PersistentCalls:
+      m_Calls: []
   timeToComplete: 5
 --- !u!23 &927619461
 MeshRenderer:
@@ -1010,8 +1014,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prereqs: []
-  complete: 0
   targetLocation: {fileID: 1742742266}
+  completeEvent:
+    m_PersistentCalls:
+      m_Calls: []
   timeToComplete: 5
 --- !u!23 &1742742268
 MeshRenderer:
@@ -6275,8 +6281,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prereqs: []
-  complete: 0
   targetLocation: {fileID: 1993347048}
+  completeEvent:
+    m_PersistentCalls:
+      m_Calls: []
   timeToComplete: 5
 --- !u!1 &2126100421
 GameObject:
@@ -6617,6 +6625,10 @@ PrefabInstance:
       propertyPath: mask.m_Bits
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8216528752899610626, guid: 7ee4fdd82a91ab74189d774a969e1bd0, type: 3}
+      propertyPath: escapeContainer
+      value: 
+      objectReference: {fileID: 507913934}
     - target: {fileID: 8216528752899610626, guid: 7ee4fdd82a91ab74189d774a969e1bd0, type: 3}
       propertyPath: escapeContainers
       value: 
