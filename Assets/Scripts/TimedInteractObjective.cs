@@ -16,6 +16,14 @@ public class TimedInteractObjective : Objective
         isInteracting = true;
     }
 
+    public override void StopInteract()
+    {
+        isInteracting = false;
+        timeElapsed = 0f;
+        current.anim.SetBool("interact", false);
+        current = null;
+    }
+
     public override void Complete()
     {
         base.Complete();

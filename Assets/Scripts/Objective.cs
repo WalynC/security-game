@@ -50,6 +50,11 @@ public class Objective : MonoBehaviour
         return ret;
     }
 
+    public virtual void StopInteract()
+    {
+
+    }
+
     public virtual void Complete()
     {
         complete = true;
