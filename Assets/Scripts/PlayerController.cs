@@ -11,12 +11,19 @@ public class PlayerController : MonoBehaviour
     public NavMeshAgent agent;
     public float minPitch = -45f;
     public float maxPitch = 89f;
+    public ParticleSystem weaponHit, enemyHit;
+
+    public static PlayerController instance;
+
+    Queue<ParticleSystem> weaponHits = new Queue<ParticleSystem>();
+    Queue<ParticleSystem> enemyHits = new Queue<ParticleSystem>();
 
     public float timeBetweenShots;
     float lastFireTime;
 
     void Start()
     {
+        instance = this;
         cam = Camera.main;
     }
 
@@ -53,9 +60,36 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.transform.TryGetComponent<EnemyHealth>(out EnemyHealth health))
             {
+                Impact(hit.point, true);
                 health.TakeDamage(5);
+            } else
+            {
+                Impact(hit.point, false);
             }
         }
+    }
+
+    public ParticleSystem GetParticle(bool enemy)
+    {
+        Queue<ParticleSystem> sysQ = enemy ? enemyHits : weaponHits;
+        if (sysQ.Count <= 0) sysQ.Enqueue(Instantiate(enemy ? enemyHit : weaponHit));
+        return sysQ.Dequeue();
+    }
+
+    public void Impact(Vector3 pos, bool enemy)
+    {
+        ParticleSystem obj = GetParticle(enemy);
+        obj.gameObject.SetActive(true);
+        obj.Play();
+        obj.transform.position = pos;
+        obj.transform.forward = -cam.transform.forward;
+    }
+
+    public void ReturnParticleObject(ParticleSystem sys, bool enemy)
+    {
+        sys.gameObject.SetActive(false);
+        Queue<ParticleSystem> sysQ = enemy ? enemyHits : weaponHits;
+        sysQ.Enqueue(sys);
     }
 
     bool TryFire()

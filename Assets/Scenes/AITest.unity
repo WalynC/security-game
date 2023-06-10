@@ -995,6 +995,8 @@ MonoBehaviour:
   agent: {fileID: 1254804954}
   minPitch: -45
   maxPitch: 89
+  weaponHit: {fileID: 1420076616350851754, guid: 0eb382de07f390e4188fbee5fc56fd57, type: 3}
+  enemyHit: {fileID: 1420076616350851754, guid: 7c67bf0b5b345c14f91107c149ab4060, type: 3}
   timeBetweenShots: 0.1
 --- !u!1001 &1279306407
 PrefabInstance:
