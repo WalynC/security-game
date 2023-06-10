@@ -71,12 +71,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 0}
-  next: {fileID: 0}
   anim: {fileID: 5181945597935043735}
-  escapeCont: {fileID: 0}
+  escapeContainer: {fileID: 0}
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!114 &439714868853595369
 MonoBehaviour:
   m_ObjectHideFlags: 0
