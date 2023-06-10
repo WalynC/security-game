@@ -10,10 +10,32 @@ public class AI : MonoBehaviour
     NavMeshAgent agent;
     public Animator anim;
 
+    public Transform escapeCont;
+    Transform target;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         GetNextObjective();
+    }
+
+    public void Hit()
+    {
+        next = null;
+        Transform esc = escapeCont.GetChild(0);
+        float dist = Vector3.Distance(transform.position, esc.position);
+        for (int i = 1; i < escapeCont.childCount; ++i)
+        {
+            Transform ch = escapeCont.GetChild(i);
+            float chdist = Vector3.Distance(ch.position, transform.position);
+            if (chdist < dist)
+            {
+                esc = ch;
+                dist = chdist;
+            }
+        }
+        target = esc;
+        agent.destination = target.position;
     }
 
     public void GetNextObjective()
@@ -32,7 +54,8 @@ public class AI : MonoBehaviour
 
     public void GetPathToObjective()
     {
-        agent.destination = next.targetLocation.position;
+        target = next.targetLocation;
+        agent.destination = target.position;
     }
 
     private void Update()
@@ -46,9 +69,16 @@ public class AI : MonoBehaviour
                 next = null;
                 GetNextObjective();
             }
-            else if (Vector3.Distance(agent.transform.position, next.targetLocation.position) < 0.5f)
+            else if (Vector3.Distance(agent.transform.position, target.position) < 0.5f)
             {
                 next.Interact(this);
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(agent.transform.position, target.position) < 0.5f)
+            {
+                GetNextObjective();
             }
         }
     }
