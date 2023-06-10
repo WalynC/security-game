@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Objective : MonoBehaviour
 {
     public List<Objective> prereqs;
     public bool complete { get; private set; }
     public Transform targetLocation;
+
+    public UnityEvent completeEvent;
 
     void Start()
     {
@@ -58,6 +61,7 @@ public class Objective : MonoBehaviour
     public virtual void Complete()
     {
         complete = true;
+        completeEvent?.Invoke();
     }
 
     public virtual void Interact(AI ai) {
