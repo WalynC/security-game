@@ -12,6 +12,8 @@ public class AI : MonoBehaviour
 
     public Transform escapeCont;
     Transform target;
+    public LayerMask mask;
+    bool fleeing = false;
 
     void Start()
     {
@@ -21,21 +23,30 @@ public class AI : MonoBehaviour
 
     public void Hit()
     {
-        next = null;
-        Transform esc = escapeCont.GetChild(0);
-        float dist = Vector3.Distance(transform.position, esc.position);
-        for (int i = 1; i < escapeCont.childCount; ++i)
+        if (fleeing) return;
+        Transform esc = null;
+        float dist = float.MaxValue;
+        for (int i = 0; i < escapeCont.childCount; ++i)
         {
             Transform ch = escapeCont.GetChild(i);
-            float chdist = Vector3.Distance(ch.position, transform.position);
-            if (chdist < dist)
+            Ray ray = new Ray(ch.position, PlayerController.instance.transform.position - ch.position);
+            if (Physics.Raycast(ray, out RaycastHit hit, Vector3.Distance(transform.position, PlayerController.instance.transform.position), mask))
             {
-                esc = ch;
-                dist = chdist;
+                float chdist = Vector3.Distance(ch.position, transform.position);
+                if (chdist < dist)
+                {
+                    esc = ch;
+                    dist = chdist;
+                }
             }
         }
-        target = esc;
-        agent.destination = target.position;
+        if (esc != null)
+        {
+            fleeing = true;
+            next = null;
+            target = esc;
+            agent.destination = target.position;
+        }
     }
 
     public void GetNextObjective()
@@ -78,6 +89,7 @@ public class AI : MonoBehaviour
         {
             if (Vector3.Distance(agent.transform.position, target.position) < 0.5f)
             {
+                fleeing = false;
                 GetNextObjective();
             }
         }
