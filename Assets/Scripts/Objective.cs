@@ -5,7 +5,7 @@ using UnityEngine;
 public class Objective : MonoBehaviour
 {
     public List<Objective> prereqs;
-    public bool complete;
+    public bool complete { get; private set; }
     public Transform targetLocation;
 
     void Start()

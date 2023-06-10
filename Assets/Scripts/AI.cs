@@ -6,11 +6,11 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     public Objective main;
-    public Objective next;
+    Objective next;
     NavMeshAgent agent;
     public Animator anim;
 
-    public Transform escapeCont;
+    public Transform escapeContainer;
     Transform target;
     public LayerMask mask;
     bool fleeing = false;
@@ -26,9 +26,9 @@ public class AI : MonoBehaviour
         if (fleeing) return;
         Transform esc = null;
         float dist = float.MaxValue;
-        for (int i = 0; i < escapeCont.childCount; ++i)
+        for (int i = 0; i < escapeContainer.childCount; ++i)
         {
-            Transform ch = escapeCont.GetChild(i);
+            Transform ch = escapeContainer.GetChild(i);
             Ray ray = new Ray(ch.position, PlayerController.instance.transform.position - ch.position);
             if (Physics.Raycast(ray, out RaycastHit hit, Vector3.Distance(transform.position, PlayerController.instance.transform.position), mask))
             {
