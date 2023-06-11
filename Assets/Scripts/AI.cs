@@ -76,7 +76,6 @@ public class AI : MonoBehaviour
         anim.SetBool("move", isMoving);
         if (next != null)
         {
-            Debug.Log(Vector3.Distance(agent.transform.position, target.position));
             if (next.complete)
             {
                 next = null;
