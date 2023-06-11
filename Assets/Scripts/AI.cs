@@ -9,6 +9,7 @@ public class AI : MonoBehaviour
     Objective next;
     NavMeshAgent agent;
     public Animator anim;
+    public float interactRadius = .5f;
 
     public Transform escapeContainer;
     Transform target;
@@ -75,19 +76,20 @@ public class AI : MonoBehaviour
         anim.SetBool("move", isMoving);
         if (next != null)
         {
+            Debug.Log(Vector3.Distance(agent.transform.position, target.position));
             if (next.complete)
             {
                 next = null;
                 GetNextObjective();
             }
-            else if (Vector3.Distance(agent.transform.position, target.position) < 0.5f)
+            else if (Vector3.Distance(agent.transform.position, target.position) < interactRadius)
             {
                 next.Interact(this);
             }
         }
         else
         {
-            if (Vector3.Distance(agent.transform.position, target.position) < 0.5f)
+            if (Vector3.Distance(agent.transform.position, target.position) < interactRadius)
             {
                 fleeing = false;
                 GetNextObjective();
