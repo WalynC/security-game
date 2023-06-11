@@ -13,11 +13,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        ai.Hit();
         health -= dmg;
         if (health <= 0)
         {
             dieEvent?.Invoke();
+        } else
+        {
+            ai.Hit();
         }
     }
 }
