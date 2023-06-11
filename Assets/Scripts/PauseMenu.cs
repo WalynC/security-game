@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
         obj.SetActive(true);
     }
 
-    void Unpause()
+    public void Unpause()
     {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
