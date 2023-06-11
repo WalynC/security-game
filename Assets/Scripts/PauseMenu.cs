@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SetPause(bool pause) => allowPause = pause;
 
-    public void ResetTimeScale() => Time.timeScale = 0f;
+    public void ResetTimeScale() => Time.timeScale = 1f;
 
     void Pause()
     {
