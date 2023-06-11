@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AITest.unity
     guid: ccca4f576d7559b449daf8f81254c90b
+  - enabled: 1
+    path: Assets/Scenes/Save.unity
+    guid: 53e38455461309442899d5683863bcc4
   m_configObjects: {}
