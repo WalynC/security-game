@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && allowPause)
+        if (Input.GetKeyDown(KeyCode.P) && allowPause)
         {
             if (obj.activeInHierarchy)
             {
