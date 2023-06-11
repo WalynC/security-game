@@ -1407,6 +1407,10 @@ PrefabInstance:
       propertyPath: weaponHit
       value: 
       objectReference: {fileID: 1420076616350851754, guid: 0eb382de07f390e4188fbee5fc56fd57, type: 3}
+    - target: {fileID: 7524091920861303167, guid: 6b6373dad08afeb4998a3b9f8ce979bc, type: 3}
+      propertyPath: sensitivity
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42185,10 +42189,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 191.98
+  m_fontSize: 72
   m_fontSizeBase: 191.98
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -83574,7 +83578,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh100506
+  m_Name: pb_Mesh56212
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -90165,7 +90169,7 @@ RectTransform:
   m_Father: {fileID: 1056248923}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.7}
+  m_AnchorMin: {x: 0.1, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -90222,10 +90226,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 148.6
+  m_fontSize: 72
   m_fontSizeBase: 148.6
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
